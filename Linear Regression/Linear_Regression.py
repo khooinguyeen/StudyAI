@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# tạo dữ liệu
 # numOfPoint = 30
 # noise = np.random.normal(0, 1, numOfPoint).reshape(-1, 1)
 # x = np.linspace(30, 100, numOfPoint).reshape(-1, 1)
