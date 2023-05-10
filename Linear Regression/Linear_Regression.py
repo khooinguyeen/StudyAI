@@ -87,27 +87,36 @@ from sklearn.linear_model import LinearRegression
 data = pd.read_csv('Linear Regression/data_linear.csv').values
 x = data[:, 0].reshape(-1, 1)
 y = data[:, 1].reshape(-1, 1)
+# tải dữ liệu và chia thành biến đầu vào x và biến mục tiêu y.
 
 plt.scatter(x, y)
 plt.xlabel('mét vuông')
 plt.ylabel('giá')
 
 # Tạo mô hình hồi quy tuyến tính
-lrg = LinearRegression()
+lrg = LinearRegression() # tạo instance của class LinearRegression
 
 # Train mô hình với data giá đất
 lrg.fit(x, y)
 
 # Đoán giá nhà đất 
 y_pred = lrg.predict(x)
+# method predict() dùng để tạo ra các dự đoán (y_pred) cho biến (x) bằng cách sử dụng mô hình hồi quy tuyến tính(lrg).
 
 plt.plot((x[0], x[-1]), (y_pred[0], y_pred[-1]), 'r')
 plt.show()
+# vẽ các điểm dữ liệu gốc dưới dạng điểm scatter và giá trị dự đoán (y_pred) dưới dạng một đường màu đỏ. 
+# Biểu đồ kết quả sẽ hiển thị đường hồi quy tuyến tính biểu thị mối quan hệ giữa biến đầu vào (x) 
+# và giá trị mục tiêu dự đoán (y_pred).
 
 # Lưu nhiều tham số với numpy.savez(), định dạng '.npz'
 np.savez('w2.npz', a=lrg.intercept_, b=lrg.coef_)
+# The intercept value (giá trị chặn) is saved as a, and the coefficient value (giá trị hệ số) is saved as b.
 
 # Lấy lại các tham số trong file .npz
 k = np.load('w2.npz')
 lrg.intercept_ = k['a']
 lrg.coef_ = k['b']
+
+# Giá trị chặn (intercept) được gán cho lrg.intercept_, và giá trị hệ số (coefficient) được gán cho lrg.coef_. 
+# Điều này cho phép bạn khôi phục lại các tham số đã được lưu trữ trước đó cho mô hình hồi quy tuyến tính.
