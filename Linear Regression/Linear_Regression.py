@@ -59,7 +59,7 @@ for i in range(1, numOfIteration): # vòng lặp huấn luyện
     # correct the shape dimension
     w[1] -= learning_rate*np.sum(np.multiply(r, x[:, 1].reshape(-1, 1))) 
     # Cập nhật trọng số thứ hai (w[1]) bằng cách trừ learning_rate nhân với tổng của tích element-wise giữa r và cột thứ hai của x.
-    print(cost[i])
+
 
 predict = np.dot(x, w) 
 # Dự đoán đầu ra predict bằng tích vô hướng giữa x và w. 
