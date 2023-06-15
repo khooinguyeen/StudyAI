@@ -1,2 +1,1 @@
-# StudyAI
- 
+# StudyAI   
